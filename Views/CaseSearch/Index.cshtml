@@ -1,0 +1,26 @@
+﻿@model CaseSearchApp.Models.CaseSearchModel
+
+@{
+    ViewData["Title"] = "Case Search";
+}
+
+<h2>Upload PDF and Case Numbers</h2>
+
+<form asp-action="SearchCases" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label for="PdfFile">Select PDF:</label>
+        <input type="file" name="PdfFile" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="CaseNumbersFile">Select Case Numbers File (txt):</label>
+        <input type="file" name="CaseNumbersFile" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Search Cases</button>
+</form>
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @ViewData["Message"]
+    </div>
+}
